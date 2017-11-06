@@ -1720,4 +1720,31 @@ addcompletions
 
 export ANDROID_BUILD_TOP=$(gettop)
 
+# Enable SD-LLVM if available
+for ((  i = 1 ;  i < 4;  i++  ))
+do
+	case "$i" in
+		'1') dirname="vendor/qcom/sdclang-4.0/linux-x86/bin"
+		;;
+		'2') dirname="vendor/qcom/sdclang-3.8/linux-x86/bin"
+		;;
+		'3') dirname="prebuilts/snapdragon-llvm/toolchains/llvm-Snapdragon_LLVM_for_Android_3.8/prebuilt/linux-x86_64/bin"
+		;;
+		'4') dirname="prebuilts/snapdragon-llvm/toolchains/llvm-Snapdragon_LLVM_for_Android_4.0/prebuilt/linux-x86_64/bin"
+		;;
+	esac
+        if [ -d "$dirname" ]; then
+	name1=$dirname
+	echo "SDCLANG Founded: $dirname"
+            export SDCLANG=true
+            export SDCLANG_PATH=$dirname
+            export SDCLANG_PATH2=$dirname
+            export SDCLANG_LTO_DEFS=vendor/aosp/sdclang/sdllvm-lto-defs.mk
+            export SDCLANG_COMMON_FLAGS="-O3 -fvectorize-loops"
+	    fi
+	
+done
+
 . $ANDROID_BUILD_TOP/vendor/aosp/build/envsetup.sh
+
+
