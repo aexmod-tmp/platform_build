@@ -67,11 +67,15 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     dalvik.vm.dexopt.secondary=true \
     dalvik.vm.appimageformat=lz4
 
-# make "boot" reasons only extract for faster turnaround.
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+# Make "boot" reasons only extract for faster turnaround.
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     pm.dexopt.first-boot=extract \
-    pm.dexopt.boot=verify \
+    pm.dexopt.boot=extract \
+
+# The install filter is speed-profile in order to enable the use of
+# profiles from the dex metadata files. Note that if a profile is not provided
+# or if it is empty speed-profile is equivalent to (quicken + empty app image).
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     pm.dexopt.install=speed-profile \
     pm.dexopt.bg-dexopt=speed-profile \
     pm.dexopt.ab-ota=speed-profile \
