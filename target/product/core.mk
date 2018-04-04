@@ -48,10 +48,6 @@ PRODUCT_PACKAGES += \
     PrintRecommendationService \
     ProxyHandler \
     Settings \
-    SettingsBlackThemeOverlay \
-    SettingsDarkThemeOverlay \
-    DuiDarkTheme \
-    DuiBlackTheme \
     SharedStorageBackup \
     StorageManager \
     SubstratumService \
