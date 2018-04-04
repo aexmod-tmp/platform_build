@@ -71,8 +71,8 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     pm.dexopt.first-boot=extract \
-    pm.dexopt.boot=extract \
-    pm.dexopt.install=quicken \
+    pm.dexopt.boot=verify \
+    pm.dexopt.install=speed-profile \
     pm.dexopt.bg-dexopt=speed-profile \
     pm.dexopt.ab-ota=speed-profile \
     pm.dexopt.inactive=verify \
