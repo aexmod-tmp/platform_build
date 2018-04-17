@@ -87,7 +87,7 @@ DISABLE_POLLY_arm64 := libssh
 LLD_FLAG := -fuse-ld=lld
 
 # Disable lld
-DISABLE_LLD := libfuse
+DISABLE_LLD := 
 
 # Set DISABLE_POLLY based on arch
 DISABLE_POLLY := \
